@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Please_select_a_location_for_InPerson</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+   TEXT (  Event_Type__c  ) != &apos;Virtual&apos;,
+   ISBLANK (  Location__c )
+)</errorConditionFormula>
+    <errorDisplayField>Location__c</errorDisplayField>
+    <errorMessage>Please select a location for In-Person Event</errorMessage>
+</ValidationRule>

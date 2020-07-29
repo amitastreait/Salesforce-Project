@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Event_Organizer__c</fullName>
+    <externalId>false</externalId>
+    <label>Event Organizer</label>
+    <referenceTo>Event_Organizer__c</referenceTo>
+    <relationshipLabel>Events</relationshipLabel>
+    <relationshipName>Events</relationshipName>
+    <relationshipOrder>0</relationshipOrder>
+    <reparentableMasterDetail>true</reparentableMasterDetail>
+    <trackTrending>false</trackTrending>
+    <type>MasterDetail</type>
+    <writeRequiresMasterRead>false</writeRequiresMasterRead>
+</CustomField>
