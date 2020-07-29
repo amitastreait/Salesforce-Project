@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Event_is_Not_Live_or_Has_been_Organized</fullName>
+    <active>true</active>
+    <errorConditionFormula>NOT Event__r.Live__c</errorConditionFormula>
+    <errorDisplayField>Event__c</errorDisplayField>
+    <errorMessage>Event_is_Not_Live_or_Has_been_Organized</errorMessage>
+</ValidationRule>

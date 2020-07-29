@@ -1,0 +1,32 @@
+<!--
+  @File Name          : eventTile.html
+  @Description        : 
+  @Author             : A Singh
+  @Group              : 
+  @Last Modified By   : A Singh
+  @Last Modified On   : 6/8/2020, 9:09:47 PM
+  @Modification Log   : 
+  Ver       Date            Author      		    Modification
+  1.0    6/8/2020   A Singh     Initial Version
+-->
+<template>
+  <lightning-layout multiple-rows>
+    <lightning-layout-item size="3" padding="around-small">
+      <p>
+        {event.Name__c}
+      </p>
+      <p>
+        {event.EVNT_ORG}
+      </p>
+      <p>
+        {event.Location}
+      </p>
+    </lightning-layout-item>
+    <lightning-layout-item size="1" padding="around-small">
+    </lightning-layout-item>
+    <lightning-layout-item size="8" padding="around-small">
+      <lightning-formatted-rich-text value={event.Event_Detail__c}>
+      </lightning-formatted-rich-text>
+    </lightning-layout-item>
+  </lightning-layout>
+</template>

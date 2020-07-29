@@ -1,0 +1,50 @@
+{
+    "compilerOptions": {
+        "experimentalDecorators": true,
+        "baseUrl": ".",
+        "paths": {
+            "c/helloSetup": [
+                "helloSetup/helloSetup.js"
+            ],
+            "c/lwcsearchcomponent": [
+                "lwcsearchcomponent/lwcsearchcomponent.js"
+            ],
+            "c/lwcrecordlist": [
+                "lwcrecordlist/lwcrecordlist.js"
+            ],
+            "c/customlwclookup": [
+                "customlwclookup/customlwclookup.js"
+            ],
+            "c/lookupdemol": [
+                "lookupdemol/lookupdemol.js"
+            ],
+            "c/addEvent": [
+                "addEvent/addEvent.js"
+            ],
+            "c/eventDetails": [
+                "eventDetails/eventDetails.js"
+            ],
+            "c/eventList": [
+                "eventList/eventList.js"
+            ],
+            "c/eventTile": [
+                "eventTile/eventTile.js"
+            ],
+            "c/attendeeEvents": [
+                "attendeeEvents/attendeeEvents.js"
+            ],
+            "c/speakerTile": [
+                "speakerTile/speakerTile.js"
+            ]
+        }
+    },
+    "include": [
+        "**/*",
+        "../../../../.sfdx/typings/lwc/**/*.d.ts"
+    ],
+    "typeAcquisition": {
+        "include": [
+            "jest"
+        ]
+    }
+}

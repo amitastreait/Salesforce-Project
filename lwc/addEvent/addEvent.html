@@ -1,0 +1,51 @@
+<!--
+  @File Name          : addEvent.html
+  @Description        : 
+  @Author             : A Singh
+  @Group              : 
+  @Last Modified By   : A Singh
+  @Last Modified On   : 6/7/2020, 7:26:45 PM
+  @Modification Log   : 
+  Ver       Date            Author      		    Modification
+  1.0    6/7/2020   A Singh     Initial Version
+-->
+<template>
+    <lightning-card variant="Narrow" title="Event Information" icon-name="standard:event">
+        <div class="slds-m-around_small">
+            <template if:true={errors}>
+                {errors}
+            </template>
+        </div>
+        <div class="slds-m-around_small">
+            <lightning-input type="text" required variant="standard" name="Name" value={eventRecord.Name} label="Name"
+                onchange={handleChange}>
+            </lightning-input>
+            <c-customlwclookup onselect={handleLookup} object-name="Event_Organizer__c" field-name="Name"
+                parentidfield="Event_Organizer__c" iconname="standard:people" label="Event Organizer">
+            </c-customlwclookup>
+            <br />
+            <lightning-input type="datetime" required variant="standard" name="Start_DateTime__c" label="Start Date"
+                value={eventRecord.Start_DateTime__c} onchange={handleChange}>
+            </lightning-input>
+            <lightning-input type="datetime" variant="standard" value={eventRecord.End_Date_Time__c}
+                name="End_Date_Time__c" label="End Date" onchange={handleChange}>
+            </lightning-input>
+            <lightning-input type="number" required variant="standard" value={eventRecord.Max_Seats__c}
+                name="Max_Seats__c" label="Max Attendees" onchange={handleChange}>
+            </lightning-input>
+            <c-customlwclookup onselect={handleLookup} object-name="Location__c" field-name="Name"
+                parentidfield="Location__c" iconname="utility:location" label="Event Location"></c-customlwclookup>
+            <br />
+            <lightning-input-rich-text required type="number" variant="standard" value={eventRecord.Event_Detail__c}
+                name="Event_Detail__c" label="Event Details" onchange={handleChange}>
+            </lightning-input-rich-text>
+        </div>
+        <div class="slds-m-around_small">
+            <lightning-button label="Cancel" title="Cancel" onclick={handleCancel}>
+            </lightning-button>
+            &nbsp; &nbsp;
+            <lightning-button variant="brand" label="Add Event" title="Add Event" onclick={handleClick}>
+            </lightning-button>
+        </div>
+    </lightning-card>
+</template>

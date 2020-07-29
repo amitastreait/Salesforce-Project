@@ -1,0 +1,57 @@
+<!--
+  @File Name          : eventList.html
+  @Description        : 
+  @Author             : A Singh
+  @Group              : 
+  @Last Modified By   : A Singh
+  @Last Modified On   : 6/8/2020, 10:20:19 PM
+  @Modification Log   : 
+  Ver       Date            Author      		    Modification
+  1.0    6/8/2020   A Singh     Initial Version
+-->
+<template>
+  <lightning-card
+    variant="Narrow"
+    title="Upcoming Events"
+    icon-name="standard:event"
+  >
+    <div class="slds-m-around_small">
+      <template if:true={error}>
+        {error}
+      </template>
+    </div>
+    <div class="slds-m-around_small">
+      <c-lwcsearchcomponent
+        search-label="Event Name"
+        show-label="true"
+        onsearch={handleSearch}
+      >
+      </c-lwcsearchcomponent>
+      &nbsp;
+      <lightning-input
+        type="datetime"
+        value={startdattime}
+        onchange={handleStartDate}
+        label="Start Date Time"
+      >
+      </lightning-input>
+      &nbsp;
+      <c-lwcsearchcomponent
+        search-label="Event Location"
+        show-label="true"
+        onsearch={handleLocationSearch}
+      >
+      </c-lwcsearchcomponent>
+    </div>
+    <div class="slds-m-around_small">
+      <lightning-datatable
+        key-field="id"
+        data={recordsToDisplay}
+        show-row-number-column
+        hide-checkbox-column
+        columns={columnsList}
+      >
+      </lightning-datatable>
+    </div>
+  </lightning-card>
+</template>

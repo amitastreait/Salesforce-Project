@@ -1,0 +1,17 @@
+<!--
+  @File Name          : eventDetailsAura.cmp
+  @Description        : 
+  @Author             : A Singh
+  @Group              : 
+  @Last Modified By   : A Singh
+  @Last Modified On   : 6/13/2020, 9:22:45 PM
+  @Modification Log   : 
+  Ver       Date            Author      		    Modification
+  1.0    6/13/2020   A Singh     Initial Version
+-->
+<aura:component
+  implements="lightning:actionOverride, flexipage:availableForAllPageTypes, 
+flexipage:availableForRecordHome, forceCommunity:availableForAllPageTypes"
+>
+  <c:eventDetails />
+</aura:component>

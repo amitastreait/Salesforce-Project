@@ -1,0 +1,41 @@
+<!--
+  @File Name          : speakerTile.html
+  @Description        : 
+  @Author             : A Singh
+  @Group              : 
+  @Last Modified By   : A Singh
+  @Last Modified On   : 6/13/2020, 6:27:46 PM
+  @Modification Log   : 
+  Ver       Date            Author      		    Modification
+  1.0    6/11/2020   A Singh     Initial Version
+-->
+<template>
+  <template if:true={speaker}>
+    <lightning-layout vertical-align="center">
+      <lightning-layout-item>
+        <template if:true={speaker.Picture__c}>
+          <img src={speaker.Picture__c} alt="Profile photo" />
+        </template>
+        <template if:false={speaker.Picture__c}>
+          <img
+            src="https://www.pngitem.com/pimgs/m/41-414928_face-head-line-art-clip-and-white-symbol.png"
+            alt="Profile photo"
+          />
+        </template>
+      </lightning-layout-item>
+      <lightning-layout-item padding="around-small">
+        <p>{speaker.Name}</p>
+        <p>
+          <lightning-formatted-email
+            value={speaker.Email}
+          ></lightning-formatted-email>
+        </p>
+        <p>
+          <lightning-formatted-rich-text
+            value={speaker.About_Me__c}
+          ></lightning-formatted-rich-text>
+        </p>
+      </lightning-layout-item>
+    </lightning-layout>
+  </template>
+</template>

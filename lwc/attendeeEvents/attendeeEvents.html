@@ -1,0 +1,45 @@
+<!--
+  @File Name          : attendeeEvents.html
+  @Description        : 
+  @Author             : A Singh
+  @Group              : 
+  @Last Modified By   : A Singh
+  @Last Modified On   : 6/9/2020, 9:03:59 PM
+  @Modification Log   : 
+  Ver       Date            Author      		    Modification
+  1.0    6/9/2020   A Singh     Initial Version
+-->
+<template>
+  <lightning-card variant="Narrow" title="My Events" icon-name="standard:event">
+    <div class="slds-m-around_small">
+      <lightning-accordion
+        allow-multiple-sections-open
+        active-section-name="Upcoming Events"
+      >
+        <lightning-accordion-section
+          name="Upcoming Events"
+          label="Upcoming Events"
+        >
+          <lightning-datatable
+            key-field="id"
+            data={events}
+            show-row-number-column
+            hide-checkbox-column
+            columns={columnsList}
+          >
+          </lightning-datatable>
+        </lightning-accordion-section>
+        <lightning-accordion-section name="Past Events" label="Past Events">
+          <lightning-datatable
+            key-field="id"
+            data={past_events}
+            show-row-number-column
+            hide-checkbox-column
+            columns={columnsList}
+          >
+          </lightning-datatable>
+        </lightning-accordion-section>
+      </lightning-accordion>
+    </div>
+  </lightning-card>
+</template>

@@ -1,0 +1,36 @@
+<!--
+  @File Name          : lwcrecordlist.html
+  @Description        : 
+  @Author             : Amit Singh (SFDCPanther)
+  @Group              : 
+  @Last Modified By   : Amit Singh (SFDCPanther)
+  @Last Modified On   : 5/31/2020, 10:33:56 PM
+  @Modification Log   : 
+  Ver       Date            Author      		    Modification
+  1.0    5/31/2020   Amit Singh (SFDCPanther)     Initial Version
+-->
+<template>
+  <li
+    role="presentation"
+    class="slds-listbox__item slds-p-top_small"
+    onclick={handleSelect}
+  >
+    <span
+      id="listbox-option-unique-id-01"
+      class="slds-media slds-listbox__option slds-listbox__option_entity slds-listbox__option_has-meta"
+      role="option"
+    >
+      <span class="slds-media__figure">
+        <span class="slds-icon_container" title="Icon">
+          <lightning-icon icon-name={iconname} size="small"></lightning-icon>
+          <span class="slds-assistive-text">Icon</span>
+        </span>
+      </span>
+      <span class="slds-media__body">
+        <span class="slds-listbox__option-text slds-listbox__option-text_entity"
+          >{rec.Name}</span
+        >
+      </span>
+    </span>
+  </li>
+</template>

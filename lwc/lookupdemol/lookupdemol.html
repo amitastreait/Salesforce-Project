@@ -1,0 +1,28 @@
+<!--
+  @File Name          : lookupdemol.html
+  @Description        : 
+  @Author             : A Singh
+  @Group              : 
+  @Last Modified By   : A Singh
+  @Last Modified On   : 6/7/2020, 12:58:55 PM
+  @Modification Log   : 
+  Ver       Date            Author      		    Modification
+  1.0    6/7/2020   A Singh     Initial Version
+-->
+<template>
+    <lightning-card variant="Narrow" title="Lookup Demo" icon-name="standard:record">
+        <div class="slds-m-around_small">
+            <c-customlwclookup parentidfield="AccountId" field-name="Name" object-name="Contact" label="Parent Account"
+                iconname="standard:account">
+            </c-customlwclookup>
+        </div>
+        <div class="slds-m-around_small">
+            <c-customlwclookup parentidfield="ParentId" field-name="CaseNumber" object-name="Case" label="Parent Case"
+                iconname="standard:case">
+            </c-customlwclookup>
+        </div>
+        <div class="slds-m-around_small">
+
+        </div>
+    </lightning-card>
+</template>

@@ -1,0 +1,42 @@
+<!--
+  @File Name          : customlwclookup.html
+  @Description        : 
+  @Author             : Amit Singh (SFDCPanther)
+  @Group              : 
+  @Last Modified By   : A Singh
+  @Last Modified On   : 6/7/2020, 1:07:15 PM
+  @Modification Log   : 
+  Ver       Date            Author      		    Modification
+  1.0    5/31/2020   Amit Singh (SFDCPanther)     Initial Version
+-->
+<template>
+    <div class="slds-m-padding_around">
+        <template if:false={selectedRecord}>
+            <c-lwcsearchcomponent onsearch={hanldeSearch} search-label={label} isrequired="true"></c-lwcsearchcomponent>
+        </template>
+    </div>
+    <div class="slds-m-padding_around slds-listbox slds-scrollable_y">
+        <template if:false={selectedRecord}>
+            <template if:true={records}>
+                <template for:each={records} for:item="rec" for:index="index">
+                    <ul key={rec.Id}>
+                        <c-lwcrecordlist key={rec.Id} rec={rec} iconname={iconname} onselect={handleSelect}>
+                        </c-lwcrecordlist>
+                    </ul>
+                </template>
+            </template>
+        </template>
+        <template if:true={selectedRecord}>
+            <label class="slds-form-element__label" for="unique-id-of-input">
+                {label}
+            </label>
+            <div class="slds-pill-container">
+                <lightning-pill class="pillSize" href="JavaScript:void(0);" label={selectedRecord.Name}
+                    name={selectedRecord.Name} onremove={handleRemove}>
+                    <lightning-icon icon-name={iconname} variant="circle" alternative-text={objectName}>
+                    </lightning-icon>
+                </lightning-pill>
+            </div>
+        </template>
+    </div>
+</template>
