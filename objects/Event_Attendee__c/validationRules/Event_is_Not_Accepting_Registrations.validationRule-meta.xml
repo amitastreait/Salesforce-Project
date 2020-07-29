@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Event_is_Not_Accepting_Registrations</fullName>
+    <active>true</active>
+    <errorConditionFormula>OR (
+    NOT Event__r.Live__c ,
+    Event__r.Remaining_Seats__c &lt;=0
+)</errorConditionFormula>
+    <errorDisplayField>Event__c</errorDisplayField>
+    <errorMessage>Event is Not Accepting Registrations</errorMessage>
+</ValidationRule>
