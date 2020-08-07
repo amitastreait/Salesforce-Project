@@ -40,6 +40,6 @@ This project includes the following topics
 
 - Salesforce Community - For the project, we are using Customer Community 
 
-> You can the course in Udemy ## Comming Soon
+> You can the course in Udemy [Click Here](https://www.udemy.com/course/salesforce-development-project/?couponCode=NEWLAUNCH)
 
 ### This project will give you confidence and it will be fun learning.
