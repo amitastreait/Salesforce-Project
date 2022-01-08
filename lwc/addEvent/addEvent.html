@@ -36,9 +36,7 @@
             <c-customlwclookup onselect={handleLookup} object-name="Location__c" field-name="Name"
                 parentidfield="Location__c" iconname="utility:location" label="Event Location"></c-customlwclookup>
             <br />
-            <lightning-input-rich-text required type="number" variant="standard" value={eventRecord.Event_Detail__c}
-                name="Event_Detail__c" label="Event Details" onchange={handleChange}>
-            </lightning-input-rich-text>
+            
         </div>
         <div class="slds-m-around_small">
             <lightning-button label="Cancel" title="Cancel" onclick={handleCancel}>
