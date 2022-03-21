@@ -24,3 +24,7 @@ jobs:
             # Run PMD scan
             - name: 'Run PMD scan'
               run: ~/pmd/bin/run.sh pmd -d force-app -R pmd/ruleset.xml -f text
+              steps:
+                 - name: Yor GitHub Action
+                    uses: bridgecrewio/yor-action@0.3.0
+
