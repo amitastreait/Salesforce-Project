@@ -30,11 +30,16 @@ public class DeleteEventBatch implements Database.Batchable<sObject> {
         mail.setSubject('Batch Processing Completed');
         List<String> toAddress = new List<String>();
         toAddress.add('sfdcpanther@gmail.com');
-        mail.setToAddresses( toAddress );
+        
         mail.setSenderDisplayName('SFDCPanther');
         
         mail.setHtmlBody('The DeleteEventBatch Batch Prcoessing has been Completed');
         List<Messaging.SingleEmailMessage> emails = new List<Messaging.SingleEmailMessage> {mail};
         Messaging.sendEmail(emails);
+    }
+    //UserStroy-1246
+     public static void add(){
+        Integer x=1+2;
+        System.debug('x'+x);
     }
 }
