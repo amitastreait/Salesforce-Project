@@ -1,0 +1,59 @@
+# Unique name for this workflow
+name: Validate PR on develop branch
+
+# Definition when the workflow should run
+on:
+    # The workflow will run whenever an event happens on a pull request
+    pull_request:
+      # The events are that a PR is opened, or when a commit is pushed
+      # to a branch that has an existing pull request
+      types: [opened, synchronize]
+      # The branches filter allows to specify that this workflow should only
+      # run if the branch name is "develop". This way we prevent this workflow
+      # from running when PRs are opened on other branches
+      branches: [ develop ]
+      # We only care about changes to the force-app directory, which is the
+      # root directory of the sfdx project. This prevents the job from running
+      # when changing non-salesforce files (like this yml file).
+      paths:
+        - 'force-app/**'
+ # Jobs to be executed when the above conditions are met
+jobs:
+    # This is the name of the job. You can give it whatever name you want
+    validate-deployment-on-develop-org:
+        # As mentioned in the blog post, this job runs inside a VM. Here we
+        # can specify which OS this VM should run on. 
+        # In this case, we are going to run our commands on the latest version
+        # of ubuntu
+        runs-on: ubuntu-latest
+        if: ${{ github.actor != 'dependabot[bot]' }}
+        steps:
+            # Now we install nodejs in the VM, and specify version 14
+            - uses: actions/setup-node@v2
+              with:
+                node-version: '14'
+
+            # The idea is that the VM can access your remote repository
+            # because your repository is an sfdx project.
+            # This is a default action that allows us to enter the root 
+            # directory of the repository
+
+            # Make sure to specify fetch-depth:0. This allows us to
+            # access previous commits that have been pushed to the repository.
+
+            # We'll need this later when we try to figure out which metadata has 
+            # changed between commits, so that we can only deploy that metadata
+            # to the destination org# Now Install Salesforce CLI
+            - name: 'Install Salesforce CLI'
+              run: |
+                  wget https://developer.salesforce.com/media/salesforce-cli/sfdx/channels/stable/sfdx-linux-x64.tar.xz
+                  mkdir ~/sfdx
+                  tar xJf sfdx-linux-x64.tar.xz -C ~/sfdx --strip-components 1
+                  echo "$HOME/sfdx/bin" >> $GITHUB_PATH
+                  ~/sfdx/bin/sfdx version
+
+            - name: 'Checkout source code'
+              uses: actions/checkout@v2
+              with:
+                fetch-depth: 0
+                
