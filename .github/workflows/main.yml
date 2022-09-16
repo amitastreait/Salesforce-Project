@@ -1,5 +1,5 @@
 # Unique name for this workflow
--name develop branch
+name: develop branch
 
 # Definition when the workflow should run
 on:
