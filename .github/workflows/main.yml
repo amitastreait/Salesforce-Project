@@ -1,21 +1,23 @@
-on:
-    pull_request:
-      branches: [ master]
-   
-jobs:
-  
-  build:
-    
-    runs-on: ubuntu-latest
+name: Validate PR on main branch
 
-    # Steps represent a sequence of tasks that will be executed as part of the job
-    steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v3
-      # Install Salesforce CLI
-      - name: Install Salesforce CLI
-        run: |
-         wget https://developer.salesforce.com/media/salesforce-cli/sfdx-linux-amd64.tar.xz
-         mkdir sfdx-cli
-         tar xJf sfdx-linux-amd64.tar.xz -C sfdx-cli --strip-components 1
-         ./sfdx-cli/install
+# The workflow will run whenever an event happens on a pull request
+on:
+   pull_request:
+      types: [opened, synchronize]
+      branches: [ master]
+      paths:
+        - 'force-app/**'
+jobs:
+   validate-deployment-on-develop-org:
+     runs-on: ubuntu-latest
+        if:${{ github.actor != 'dependabot[bot]' }}
+        
+        steps:
+            # Now we install nodejs in the VM, and specify version 14
+            - uses: actions/setup-node@v2
+              with:
+                node-version: '14'
+            - name: 'Checkout source code'
+              uses: actions/checkout@v2
+              with:
+                fetch-depth: 0
