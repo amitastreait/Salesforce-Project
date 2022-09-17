@@ -8,9 +8,9 @@ on:
       paths:
         - 'force-app/**'
 jobs:
-   validate-deployment-on-develop-org:
+   
      runs-on: ubuntu-latest
-        if: ${{ github.actor != 'dependabot[bot]' }}
+        
         steps:
             # Now we install nodejs in the VM, and specify version 14
             - uses: actions/setup-node@v2
