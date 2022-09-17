@@ -11,9 +11,8 @@ jobs:
    validate-deployment-on-develop-org:
      runs-on: ubuntu-latest
         if:${{ github.actor != 'dependabot[bot]' }}
-        
-        steps:
-            # Now we install nodejs in the VM, and specify version 14
+     steps:
+            
             - uses: actions/setup-node@v2
               with:
                 node-version: '14'
