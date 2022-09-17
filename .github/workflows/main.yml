@@ -2,7 +2,9 @@ name: Validate PR on main branch
 
 # The workflow will run whenever an event happens on a pull request
 on:
-   pull_request:
+  push:
+    branches: [ "main" ]
+  pull_request:
       types: [opened, synchronize]
       branches: [ master]
       paths:
