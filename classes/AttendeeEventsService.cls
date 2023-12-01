@@ -3,8 +3,8 @@
  * @Description        :
  * @Author             : A Singh
  * @Group              :
- * @Last Modified By   : A Singh
- * @Last Modified On   : 6/9/2020, 9:01:38 PM
+ * @Last Modified By   : Sreenu
+ * @Last Modified On   : 1/12/2023, 7:01:38 PM
  * @Modification Log   :
  * Ver       Date            Author      		    Modification
  * 1.0    6/9/2020   A Singh     Initial Version
@@ -12,7 +12,7 @@
 public with sharing class AttendeeEventsService {
   @AuraEnabled
   public static List<Event_Attendee__c> upcomingEvets(String attendeeId) {
-    List<Event_Attendee__c> eventLists = [
+    List<Event_Attendee__c> eventList = [
       SELECT
         Id,
         Name,
@@ -30,7 +30,7 @@ public with sharing class AttendeeEventsService {
         AND Event__r.Live__c = true
       WITH SECURITY_ENFORCED
     ];
-    return eventLists;
+    return eventList;
   }
 
   @AuraEnabled
