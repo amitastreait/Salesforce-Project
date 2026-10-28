@@ -17,7 +17,7 @@ public with sharing class AttendeeEventsService {
         Id,
         Name,
         Event__c,
-        Event__r.Location__c,
+        
         Event__r.Location__r.Name,
         Event__r.Event_Organizer__c,
         Event__r.Event_Organizer__r.Name,
